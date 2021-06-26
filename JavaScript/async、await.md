@@ -11,3 +11,18 @@
   * `name`: 函数名称。
   * `param`: 要传递给函数的参数的名称。
   * `statements`: 函数体语句。
+
+`async`函数返回一个`Promise`对象，可以使用`then`方法添加回调函数，返回的`Promise`对象会运行`resolve`异步函数的返回结果，如果抛出异常则运行拒绝`reject`。
+
+### 实例
+```javascript
+async function asyncPromise(v) {
+  return v;
+}
+asyncPromise(l).then((v) => {
+  console.log(v);
+}).catch((e) => {
+  console.log(e);
+})
+```
+## await
