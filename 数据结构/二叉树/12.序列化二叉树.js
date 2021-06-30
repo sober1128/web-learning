@@ -29,7 +29,7 @@ const serialize = (root) => {
   while(queue.length) {  
     const node = queue.shift() // 考察出列的节点
     if(node){                  // 是真实节点，带出子节点入列
-      res.push(node.val)       // 节点值推入res
+      res.push(node.val)       // 节点值推入res！！！不是节点
       queue.push(node.left)    // 子节点入列，不管是不是null节点都入列
       queue.push(node.right)
     } else {                   // 是null节点，没有子节点入列
