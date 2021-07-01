@@ -47,13 +47,13 @@ var reverseKGroup = function(head, k) {
       }
       if(end == null) break; // 剩余节点保持原有顺序
       let start = pre.next;
-      let nxt = end.next;
+      let temp = end.next;
       end.next = null;
       pre.next = reverse(start);
-      start.next = nxt;
+      start.next = temp;
       // 均指向排好链表的最后一个node
       pre = start;
-      end = pre;
+      end = start;
   }
   return dummy.next;
 };

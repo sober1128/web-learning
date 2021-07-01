@@ -46,14 +46,14 @@ var divide = function(dividend, divisor) {
   if(b != 1) res = div(a,b);
   res = flag == -1 ? -res : res;
   if(res > Math.pow(2,31)-1 || res < Math.pow(-2,31)) {
-    return Math.pow(-2,31);
+    res = Math.pow(2,31)-1;   //如果结果溢出，返回2^31 − 1
   }
   return res;
 
   function div(a,b) {
     // base case
-    let count = 1;    // 倍数
     if(a < b) return 0;
+    let count = 1;    // 倍数
     let tb = b;
     while(tb+tb < a) {
       // 这么写 tb加倍跟count绑定 所以加倍的tb应该符合条件 所以要预检测下tb+tb<=a
