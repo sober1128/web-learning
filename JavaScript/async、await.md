@@ -26,3 +26,63 @@ asyncPromise(l).then((v) => {
 })
 ```
 ## await
+
+```javascript
+setTimeout(function(){     
+    console.log('1');   
+},0)   
+async function async1(){    
+    console.log('4');    
+    await async2();    
+    console.log('6');   
+}   
+async function async2(){    
+    console.log('5');   
+}   
+async1();   
+new Promise(function(resolve,reject){    
+    console.log('2');    
+    resolve();   
+}).then(function(e2){    
+    console.log('h');   
+})   
+console.log('3');  
+
+
+console.log("1");
+async function async1() {
+  await async2();
+  console.log("2");
+}
+async function async2() {
+  console.log("3");
+}
+async1();
+setTimeout(function () {
+  console.log("4");
+}, 0);
+new Promise(resolve => {
+  console.log("5");
+  resolve();
+})
+  .then(function () {
+    console.log("6");
+  })
+  .then(function () {
+    console.log("7");
+  });
+console.log("8");
+
+
+// setTimeout1
+setTimeout(() => {
+  console.log(1)
+
+  new Promise((resolve) => {
+    resolve()
+  // Promise1
+  }).then(() => {
+    console.log(2)
+  });
+})
+```

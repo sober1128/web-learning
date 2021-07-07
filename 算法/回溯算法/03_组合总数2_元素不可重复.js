@@ -35,3 +35,6 @@ const combinationSum = (candidates, target) => {
     return res;
   }
 }
+
+let sum = 1;
+console.log(Math.log2(sum));

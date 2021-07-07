@@ -8,16 +8,23 @@
 </head>
 <body>
   <script>
-var a = 11;
-function foo(){
-  "use strict";
-  console.log(this.a);
+window.name = 11;
+var obj = {
+    name: 28,
+    say: function(){
+        const foo = () => {
+            return this.name;
+        }
+        console.log(foo()); // 11 // 直接调用者为window 但是由于箭头函数不绑定this所以取得context中的this即obj对象
+        const bar = function(){
+            return this.name;
+        }
+        console.log(bar()); // 1 // 直接调用者为window 普通函数所以
+        return this.name;
+    }
 }
-// const obj = {
-//   a: 28
-// }
-foo();
-// foo.call(obj);
+
+console.log(obj.say()); // 11 // 直接调用者为obj 执行过程中的函数内context的this为obj对象
   </script>
 </body>
 </html>
